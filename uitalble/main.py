@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 from collections import OrderedDict
+from .utils.exceptions import HeaderNotDefine, HeaderAndRowLenNotMatch
 
 
 class UiTable(object):
@@ -39,15 +40,13 @@ class UiTable(object):
 
     def add_row(self, *args):
         if not self.__header_list:
-            print("You shuld define header line by add_header function")
-            exit(1)
+            raise HeaderNotDefine("Header not define!!!")
         max_len = self.get_max_len(args)
         if max_len > self.__max_row_len:
             self.__max_row_len = max_len
 
         if len(args) != self.__header_len:
-            print("The number of row don't match")
-            exit()
+            raise HeaderAndRowLenNotMatch("Header's len not equal Row's len")
         else:
             self.__row_len += 1
             for item in self.__header_list:
@@ -76,12 +75,3 @@ class UiTable(object):
                 line.append(self.__table[header][item])
             table_lines.append("".join([self.gen_format_str(item) for item in line]))
         return "\n".join(table_lines)
-
-
-if __name__ == "__main__":
-    uitable = UiTable()
-    uitable.filed_spacing = 10
-    uitable.add_header("name", "age")
-    for i in range(10):
-        uitable.add_row("1", 12)
-    print(uitable)
