@@ -1,6 +1,10 @@
-##### uitable
+### uitable
 ---
-```shell
+1. install 
+pip install uitable
+
+2. Usage 
+```shell 
 from uitable import UiTable
 uitable_ins = UiTable()
 uitable_ins.add_header("name", "age")

@@ -4,7 +4,7 @@ filepath = "uitable/README.md"
 
 setup(
     name="uitable",
-    version="0.3",
+    version="0.0.1",
     description="display data by table format",
     long_description=open(filepath).read(),
     long_description_content_type="text/markdown",
