@@ -1,7 +1,10 @@
 ### uitable
 ---
 1. install 
-pip install uitable
+```bash
+# pip install uitable
+
+```
 
 2. Usage 
 ```shell 
